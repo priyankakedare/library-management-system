@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return Book</title>
+</head>
+<body>
+    <h1>Return Book</h1>
+    <p>Issued on: {{ transaction.issue_date }}</p>
+    <form method="POST">
+        <label>Return Date:</label>
+        <input type="date" name="return_date"><br><br>
+        <input type="submit" value="Return Book">
+    </form>
+    <br><a href="/">Back</a>
+</body>
+</html>

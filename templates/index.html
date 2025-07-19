@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-sans min-h-screen">
+
+  <!-- Full Width Banner Image -->
+  <img src="static/images/library_system_design.jpeg" class="w-full h-auto" />
+
+  <!-- Welcome Text -->
+  <div class="text-center mt-10">
+    <h1 class="text-4xl font-bold mb-2">📚 Welcome to the Library Management System</h1>
+    <p class="text-lg text-gray-300">Select an action to get started</p>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 px-10 justify-items-center">
+    
+    <a href="/books" class="bg-purple-600 hover:bg-purple-700 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      📖 View Books
+    </a>
+
+    <a href="/add_book" class="bg-green-600 hover:bg-green-700 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      ➕ Add Book
+    </a>
+
+    <a href="/members" class="bg-blue-500 hover:bg-blue-600 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      👥 View Members
+    </a>
+
+    <a href="/add_member" class="bg-teal-500 hover:bg-teal-600 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      ➕ Add Member
+    </a>
+
+    <a href="/transactions" class="bg-yellow-600 hover:bg-yellow-700 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      🔁 Transactions
+    </a>
+
+    <a href="/issue" class="bg-pink-500 hover:bg-pink-600 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      📘 Issue Book
+    </a>
+
+    <!-- 📥 Import Books button -->
+    <a href="/import_books" class="bg-indigo-600 hover:bg-indigo-700 w-48 py-4 rounded-lg text-center font-semibold text-white shadow-lg">
+      📥 Import Books
+    </a>
+
+  </div>
+
+</body>
+</html>

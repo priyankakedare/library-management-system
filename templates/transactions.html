@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Transactions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.css">
+</head>
+<body class="bg-gray-100 text-gray-800 px-6 py-10">
+
+  <div class="max-w-6xl mx-auto bg-white shadow-xl rounded-lg p-8">
+    <h1 class="text-3xl font-bold mb-6 text-center text-indigo-700">📖 Transaction History</h1>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-gray-200 text-sm">
+        <thead class="bg-indigo-100 text-gray-800">
+          <tr>
+            <th class="px-4 py-3 text-left">📚 Book</th>
+            <th class="px-4 py-3 text-left">👤 Member</th>
+            <th class="px-4 py-3 text-left">📅 Issued On</th>
+            <th class="px-4 py-3 text-left">🔙 Returned On</th>
+            <th class="px-4 py-3 text-left">💰 Rent</th>
+            <th class="px-4 py-3 text-left">⚙️ Action</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-300">
+          {% for txn in transactions %}
+          <tr class="{% if not txn.return_date %}bg-red-50{% else %}bg-green-50{% endif %}">
+            <td class="px-4 py-2 font-semibold">{{ txn.book.title }}</td>
+            <td class="px-4 py-2">{{ txn.member.name }}</td>
+            <td class="px-4 py-2">{{ txn.issue_date }}</td>
+            <td class="px-4 py-2">
+              {% if txn.return_date %}
+                <span class="text-green-600">{{ txn.return_date }}</span>
+              {% else %}
+                <span class="text-red-600 font-semibold">Not Returned</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-2">₹{{ txn.rent }}</td>
+            <td class="px-4 py-2 space-x-2">
+              {% if not txn.return_date %}
+              <a href="/return/{{ txn.id }}" class="text-blue-600 hover:underline">Return</a>
+              {% endif %}
+              <a href="/delete_transaction/{{ txn.id }}"
+                 class="text-red-600 hover:underline"
+                 onclick="return confirm('Are you sure you want to delete this transaction?');">
+                 Delete
+              </a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="/" class="text-indigo-600 hover:underline text-lg">⬅️ Back to Home</a>
+    </div>
+  </div>
+
+</body>
+</html>

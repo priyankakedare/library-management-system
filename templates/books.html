@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Books</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white min-h-screen">
+
+  <!-- Header -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold text-orange-400 mb-2">📚 Library Catalog</h1>
+    <p class="text-gray-400">Browse all books available in the system</p>
+  </header>
+
+  <!-- Book List Container -->
+  <main class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+    {% for book in books %}
+      <div class="bg-gray-800 p-5 rounded-xl shadow-lg hover:shadow-2xl transition duration-300 border border-gray-700">
+        <h3 class="text-xl font-semibold text-white mb-1">{{ book.title }}</h3>
+        <p class="text-gray-400 mb-2">by {{ book.author }}</p>
+        <div class="flex items-center justify-between">
+          <span class="text-sm text-green-400">{{ book.stock }} in stock</span>
+          <span class="text-xs bg-blue-700 text-white px-2 py-1 rounded">ISBN: {{ book.isbn }}</span>
+        </div>
+      </div>
+    {% endfor %}
+
+    {% if books|length == 0 %}
+      <div class="col-span-full text-center text-gray-400">
+        No books available.
+      </div>
+    {% endif %}
+
+  </main>
+
+  <!-- Add Book Button -->
+  <div class="text-center mt-12">
+    <a href="/add_book"
+       class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md">
+      ➕ Add New Book
+    </a>
+  </div>
+
+</body>
+</html>
